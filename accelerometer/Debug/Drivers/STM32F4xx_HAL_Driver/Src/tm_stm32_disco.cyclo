@@ -1,0 +1,4 @@
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_disco.c:78:6:TM_DISCO_LedInit	1
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_disco.c:96:6:TM_DISCO_ButtonInit	1
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_disco.c:101:9:TM_DISCO_ButtonOnPressed	3
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_disco.c:120:9:TM_DISCO_ButtonOnReleased	3

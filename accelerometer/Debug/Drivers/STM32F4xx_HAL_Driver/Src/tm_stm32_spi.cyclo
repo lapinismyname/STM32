@@ -1,0 +1,16 @@
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:51:6:TM_SPI_Init	4
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:85:6:TM_SPI_InitWithMode	4
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:119:6:TM_SPI_InitFull	4
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:160:10:TM_SPI_GetPrescalerFromMaxFrequency	5
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:203:19:TM_SPI_SetDataSize	2
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:242:6:TM_SPI_SendMulti	7
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:261:6:TM_SPI_WriteMulti	7
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:280:6:TM_SPI_ReadMulti	7
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:299:6:TM_SPI_SendMulti16	7
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:318:6:TM_SPI_WriteMulti16	7
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:337:6:TM_SPI_ReadMulti16	9
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:359:13:TM_SPI_InitCustomPinsCallback	1
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:366:13:TM_SPIx_Init	8
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:492:6:TM_SPI1_INT_InitPins	4
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:512:6:TM_SPI2_INT_InitPins	6
+../Drivers/STM32F4xx_HAL_Driver/Src/tm_stm32_spi.c:544:6:TM_SPI3_INT_InitPins	4
