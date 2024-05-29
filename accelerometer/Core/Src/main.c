@@ -55,7 +55,7 @@ SPI_HandleTypeDef hspi1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-
+uint8_t txdata[6] = {0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -158,10 +158,14 @@ int main(void)
     /* USER CODE BEGIN 3 */
     /* Read axes data from initialized accelerometer */
             TM_LIS302DL_LIS3DSH_ReadAxes(&Axes_Data);
+            txdata[1] = Axes_Data.X;
+            txdata[0] = Axes_Data.X >> 8;
+            txdata[3] = Axes_Data.Y;
+            txdata[2] = Axes_Data.Y >> 8;
+            txdata[5] = Axes_Data.Z;
+            txdata[4] = Axes_Data.Z >> 8;
 
-            while (HAL_UART_Transmit(&huart2, (uint8_t*) &Axes_Data, sizeof(Axes_Data), 0xFFFF) != HAL_OK);
-
-            while (!(huart2.Instance->SR & USART_SR_TC));
+            while (HAL_UART_Transmit(&huart2, txdata, 6, 10) != HAL_OK);
 
             /* Turn LEDS on or off */
             /* Check X axes */
