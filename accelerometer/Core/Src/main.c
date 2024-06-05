@@ -56,6 +56,7 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 uint8_t txdata[6] = {0};
+uint8_t hello[] = {1, 2, 3, 4, 5, 6};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -165,7 +166,7 @@ int main(void)
             txdata[5] = Axes_Data.Z;
             txdata[4] = Axes_Data.Z >> 8;
 
-            while (HAL_UART_Transmit(&huart2, txdata, 6, 10) != HAL_OK);
+            HAL_UART_Transmit(&huart2, txdata, sizeof(txdata), 100);
 
             /* Turn LEDS on or off */
             /* Check X axes */
@@ -181,6 +182,7 @@ int main(void)
 
             if (Axes_Data.Y < -200) TM_DISCO_LedOn(LED_BLUE);
             else TM_DISCO_LedOff(LED_BLUE);
+            HAL_Delay(200);
   }
   /* USER CODE END 3 */
 }

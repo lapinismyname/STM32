@@ -53,6 +53,7 @@ uint16_t RxIndex = 0;
 int16_t AccData[RX_BUFFER_SIZE / 2]; // Buffer to store 16-bit accelerometer data
 
 uint8_t rxdata[6] = {0};
+uint8_t deneme[6];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -105,21 +106,21 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	 if (HAL_UART_Receive(&huart7, rxdata, 6, 10) == HAL_OK) {
-		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_RESET);
-		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
-		  int16_t X = (int16_t)((rxdata[0] << 8) | rxdata[1]);
-		  int16_t Y = (int16_t)((rxdata[2] << 8) | rxdata[3]);
-		  int16_t Z = (int16_t)((rxdata[4] << 8) | rxdata[5]);
-	 }
-	 else { //blink the 2nd led
-		 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
-		 HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7, GPIO_PIN_SET);
-	 }
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  if (HAL_UART_Receive(&huart7, rxdata, sizeof (rxdata), 100) == HAL_OK) {
+
+		  int16_t X = (int16_t)((rxdata[0] << 8) | rxdata[1]);
+		  int16_t Y = (int16_t)((rxdata[2] << 8) | rxdata[3]);
+		  int16_t Z = (int16_t)((rxdata[4] << 8) | rxdata[5]);
+
+		  if (X > 200) HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_SET);
+		  else HAL_GPIO_WritePin(GPIOB, GPIO_PIN_14, GPIO_PIN_RESET);
+
+		  if (X < -200) HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_SET);
+		  else HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+	 }
   }
   /* USER CODE END 3 */
 }
